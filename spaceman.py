@@ -1,7 +1,9 @@
 import random
 
-# Greeting
-print("Welcome to Spaceman!" "\n \n" "You are allowed 7 incorrect guesses." "\n")
+# Show the player information about the game according to the project spec
+print("Welcome to Spaceman-The Guessing Game!" "\n \n" 
+"You are allowed 7 incorrect guesses." "\n"
+"If you can guess the word before running out guesses you win!" "\n")
 
 
 player_ready = input("You ready? y or n? ")
@@ -107,7 +109,7 @@ def spaceman(secret_word):
     '''
 
 
-    #TODO: show the player information about the game according to the project spec
+    
 
     #TODO: Ask the player to guess one letter per round and check that it is only one letter
 
