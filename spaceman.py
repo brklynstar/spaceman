@@ -1,5 +1,14 @@
 import random
 
+# Greeting
+print("Welcome to Spaceman!" "\n \n" "You are allowed 7 incorrect guesses.")
+
+yes = "y"
+player_ready = input("You ready? y or n? ")
+
+    
+
+    
 
 # ------------------------------------------------------------------------------
 # reads a text file of words and randomly selects one to use as the secret word from the list
@@ -38,7 +47,13 @@ def is_word_guessed(secret_word, letters_guessed):
    
     
 def get_guessed_word(secret_word, letters_guessed):
-
+    random_word = ""
+    for letter in secret_word:
+        if letter in letters_guessed:
+            random_word += letter + ""
+        else:
+                random_word += "-"
+    return random_word
 
     '''
     A function that is used to get a string showing the letters guessed so far in the secret word and underscores for letters that have not been guessed yet.
@@ -57,6 +72,9 @@ def get_guessed_word(secret_word, letters_guessed):
 
 
 def is_guess_in_word(guess, secret_word):
+    
+
+
     '''
     A function to check if the guessed letter is in the secret word
 
@@ -68,6 +86,7 @@ def is_guess_in_word(guess, secret_word):
         bool: True if the guess is in the secret_word, False otherwise
 
     '''
+
     #TODO: check if the letter guess is in the secret word
 
     pass
