@@ -1,13 +1,14 @@
 import random
 
 # Greeting
-print("Welcome to Spaceman!" "\n \n" "You are allowed 7 incorrect guesses.")
+print("Welcome to Spaceman!" "\n \n" "You are allowed 7 incorrect guesses." "\n")
 
-yes = "y"
+
 player_ready = input("You ready? y or n? ")
+if player_ready == "y".lower(): "\n"
+print("Let's a go!!!")
 
-    
-
+ 
     
 
 # ------------------------------------------------------------------------------
