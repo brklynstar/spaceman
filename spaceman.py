@@ -1,3 +1,4 @@
+from pickle import TRUE
 import random
 
 # -------------------------------------------------------------------------------------------------------------------------
@@ -6,9 +7,9 @@ import random
 def load_word():
    
    
-    # Returns: 
-    #        string: The secret word to be used in the spaceman guessing game
-
+    '''Returns: 
+     string: The secret word to be used in the spaceman guessing game
+'''
     f = open('words.txt', 'r')
     words_list = f.readlines()
     f.close()
@@ -21,16 +22,12 @@ def load_word():
  # A function that checks if all the letters of the secret word have been guessed.
 
 def is_word_guessed(secret_word, letters_guessed):
-    if letters_guessed == secret_word:
-        print ("You did it! You guessed the word! You win!")
-    else:
-        print("Sorry, that's incorrect, please try again!")
+    for i in secret_word:
+        if i not in letters_guessed:
+            return False
+            else: return True
     # if letters_guessed in secret_word == True:
-        
-           
-
-       
-    letters_guessed = ()
+    
     # # letters_guessed (list of strings): list of letters that have been guessed so far.
     #   Args:
     #     secret_word (string): the random word the user is trying to guess.
@@ -41,10 +38,9 @@ def is_word_guessed(secret_word, letters_guessed):
 
 
     # TODO: Loop through the letters in the secret_word and check if a letter is not in lettersGuessed
-def letters_guessed(secret_word): 
-    for letters in secret_word:
-        if letters in letters_guessed == False:
-            print()
+def guessed( guess, secret_word):
+    letters_guessed.append(guess)
+
            
             #    pass
 
@@ -52,14 +48,12 @@ def letters_guessed(secret_word):
 #  A function that is used to get a  
 # 
 
-def get_guessed_word(secret_word, letters_guessed):
-    random_word = ""  #string showing the letters guessed so far in the secret word 
-    for letter in secret_word: 
-        if letter in letters_guessed:
-            random_word += letter + ""
-        else:
-                random_word += "_" #underscores  for letters that have not been guessed yet.
-    return random_word
+def get_guessed_word(secret_word, letters_guessed, word_to_guess):
+    i = 0
+    while i < len(secret_word):
+        if secret_word[i] in letters_guessed:
+            word_to_guess[i] = secret_word[i]
+        i += 1
 
     '''
    
@@ -72,11 +66,17 @@ def get_guessed_word(secret_word, letters_guessed):
 
     #TODO: Loop through the letters in secret word and build a string that shows the letters that have been guessed correctly so far that are saved in letters_guessed and underscores for the letters that have not been guessed yet
 
-    pass
+   
 
 # ----------------------------------------------------------------------------------------------------------
 
 def is_guess_in_word(guess, secret_word):
+    if guess in secret_word:
+        correct_guess.append(guess)
+        return True
+    else: 
+        incorrect_guess.append(guess)
+        return False
     '''
     A function to check if the guessed letter is in the secret word
     Args:
@@ -88,6 +88,8 @@ def is_guess_in_word(guess, secret_word):
     #TODO: check if the letter guess is in the secret word
 
     pass
+
+
 # -----------------------------------------------------------------------------------------------------------
 # Show the player information about the game according to the project spec
 
@@ -104,10 +106,13 @@ print("Let's a go!!!")
 #  -----------------------------------------------------------------------------------------------------------
 
 # TODO Ask the player to guess one letter per round and check that it is only one letter
+
 guessed_letter = 0
 user_input = input("Guess one letter: ")
 if guessed_letter < 0:
     print("Please only choose one letter!")
+
+
     
 # -----------------------------------------------------------------------------------------------------------
 # A function that controls the game of spaceman. Will start spaceman in the command line.
@@ -300,7 +305,8 @@ spaceman(secret_word)
 
 #     #TODO: show the guessed word so far
 
-#     #TODO: check if the game has been won or lost
+# 
+#    #TODO: check if the game has been won or lost
 # '''
 
 
